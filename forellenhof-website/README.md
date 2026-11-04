@@ -2,11 +2,8 @@
 
 Statische Website (HTML, CSS und JavaScript). Sie läuft ohne CMS und ohne Datenbank und kann bei jedem Webhoster liegen (z. B. IONOS).
 
-## Vorschau
-```
-node serve.js
-```
-Danach http://localhost:8080 öffnen.
+## Live-Vorschau
+Doppelklick auf `Vorschau-starten.bat` im Projektordner (oder `node serve.js` im Website-Ordner). Die Seite öffnet sich unter http://localhost:8080 und **lädt bei jeder gespeicherten Änderung automatisch neu**. Das Fenster offen lassen, zum Beenden schließen.
 
 ## Seiten
 | Datei | Inhalt |

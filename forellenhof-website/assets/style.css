@@ -540,7 +540,7 @@ a.ccard:hover { transform: translateY(-3px); box-shadow: var(--shadow); color: i
 .fish-card {
   position: relative; overflow: hidden; min-height: 340px; padding: 0;
   display: flex; flex-direction: column; justify-content: flex-end; text-align: left;
-  background-color: var(--forest); background-position: center 20%; background-size: cover; background-repeat: no-repeat; border: 0;
+  background-color: var(--forest); background-position: center; background-size: cover; background-repeat: no-repeat; border: 0;
   transition: transform .2s ease, box-shadow .2s ease;
 }
 .fish-card::before {
