@@ -6,6 +6,8 @@ const path = require("path");
 
 const root = __dirname;
 const port = process.env.PORT || 8080;
+// LIVE=0 schaltet das automatische Neuladen ab (z. B. für Screenshots)
+const live = process.env.LIVE !== "0";
 const types = {
   ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8",
   ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".ico": "image/x-icon"
@@ -44,7 +46,7 @@ http.createServer((req, res) => {
     if (err) { res.writeHead(404); return res.end("Nicht gefunden"); }
     const type = types[path.extname(file)] || "application/octet-stream";
     res.writeHead(200, { "Content-Type": type, "Cache-Control": "no-store" });
-    if (type.startsWith("text/html")) {
+    if (live && type.startsWith("text/html")) {
       res.end(data.toString("utf8").replace("</body>", reloadScript + "</body>"));
     } else {
       res.end(data);
