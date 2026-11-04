@@ -140,9 +140,12 @@
     draw();
   });
 
-  /* ---------- Wetter (Open-Meteo, ohne Cookies) ---------- */
+  /* ---------- Wetter (Open-Meteo, nur mit Einwilligung) ---------- */
   var wetterEl = $("[data-weather]");
-  if (wetterEl) {
+  var wetterGeladen = false;
+  function ladeWetter() {
+    if (!wetterEl || wetterGeladen) return;
+    wetterGeladen = true;
     var CODES = {
       0: ["☀️", "Klar"], 1: ["🌤️", "Überwiegend klar"], 2: ["⛅", "Teils bewölkt"], 3: ["☁️", "Bedeckt"],
       45: ["🌫️", "Nebel"], 48: ["🌫️", "Reifnebel"], 51: ["🌦️", "Leichter Niesel"], 53: ["🌦️", "Niesel"], 55: ["🌧️", "Starker Niesel"],
@@ -171,18 +174,100 @@
   }
 
   /* ---------- Karte erst nach Zustimmung laden ---------- */
+  function ladeKarte(box) {
+    if (box.querySelector("iframe")) return;
+    var f = document.createElement("iframe");
+    f.src = box.dataset.map;
+    f.title = "Karte: Forellenhof Münsterland";
+    f.loading = "lazy";
+    f.referrerPolicy = "no-referrer-when-downgrade";
+    box.innerHTML = "";
+    box.appendChild(f);
+  }
   $$("[data-map]").forEach(function (box) {
-    var btn = box.querySelector("button");
-    btn.addEventListener("click", function () {
-      var f = document.createElement("iframe");
-      f.src = box.dataset.map;
-      f.title = "Karte: Forellenhof Münsterland";
-      f.loading = "lazy";
-      f.referrerPolicy = "no-referrer-when-downgrade";
-      box.innerHTML = "";
-      box.appendChild(f);
-    });
+    box.querySelector("button").addEventListener("click", function () { ladeKarte(box); });
   });
+
+  /* ---------- Einwilligungs-Banner (Cookie-Hinweis) ---------- */
+  var CONSENT_KEY = "fh-einwilligung";
+  var consent = null;
+  try { consent = JSON.parse(localStorage.getItem(CONSENT_KEY)); } catch (e) { consent = null; }
+
+  function wendeEinwilligungAn() {
+    var extern = !!(consent && consent.extern);
+    if (extern) {
+      ladeWetter();
+      $$("[data-map]").forEach(ladeKarte);
+    } else if (wetterEl && !wetterGeladen) {
+      wetterEl.innerHTML = "<p class='season-note'>Die Wetteranzeige ist ausgeschaltet, weil dafür ein externer Dienst geladen wird.</p>" +
+        "<button type='button' class='linkbtn' data-consent-open>Externe Inhalte erlauben</button>";
+    }
+  }
+
+  function speichereEinwilligung(extern) {
+    consent = { extern: !!extern, datum: new Date().toISOString() };
+    try { localStorage.setItem(CONSENT_KEY, JSON.stringify(consent)); } catch (e) { /* Auswahl gilt dann nur für diesen Besuch */ }
+    schliesseBanner();
+    wendeEinwilligungAn();
+  }
+
+  var banner = null;
+  function zeigeBanner(mitEinstellungen) {
+    if (!banner) {
+      banner = document.createElement("div");
+      banner.className = "consent";
+      banner.setAttribute("role", "dialog");
+      banner.setAttribute("aria-labelledby", "consent-title");
+      banner.innerHTML =
+        "<div class='consent-inner'>" +
+          "<h2 id='consent-title'>Ihre Privatsphäre</h2>" +
+          "<p>Wir verwenden <strong>keine Tracking- oder Werbe-Cookies</strong>. Für die Karte (Google Maps) und die Wetteranzeige (Open-Meteo) werden jedoch Inhalte externer Anbieter geladen, dabei wird Ihre IP-Adresse übertragen. Sie entscheiden, ob Sie das erlauben. <a href='datenschutz.html'>Mehr in der Datenschutzerklärung</a></p>" +
+          "<div class='consent-options' hidden>" +
+            "<label><input type='checkbox' checked disabled><span><strong>Notwendig</strong>Speichert nur Ihre Auswahl auf diesem Gerät. Immer aktiv.</span></label>" +
+            "<label><input type='checkbox' data-extern><span><strong>Externe Inhalte</strong>Google Maps auf der Seite „Anfahrt“ und das Wetter von Open-Meteo auf der Startseite.</span></label>" +
+          "</div>" +
+          "<div class='consent-actions'>" +
+            "<button type='button' class='btn btn-outline' data-c='settings'>Einstellungen</button>" +
+            "<button type='button' class='btn btn-outline' data-c='save' hidden>Auswahl speichern</button>" +
+            "<button type='button' class='btn btn-dark' data-c='necessary'>Nur notwendige</button>" +
+            "<button type='button' class='btn btn-primary' data-c='all'>Alle akzeptieren</button>" +
+          "</div>" +
+        "</div>";
+      document.body.appendChild(banner);
+      banner.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-c]");
+        if (!b) return;
+        var c = b.dataset.c;
+        if (c === "all") speichereEinwilligung(true);
+        else if (c === "necessary") speichereEinwilligung(false);
+        else if (c === "save") speichereEinwilligung(banner.querySelector("[data-extern]").checked);
+        else if (c === "settings") oeffneEinstellungen();
+      });
+    }
+    banner.querySelector("[data-extern]").checked = !!(consent && consent.extern);
+    if (mitEinstellungen) oeffneEinstellungen();
+    banner.hidden = false;
+    document.body.classList.add("has-consent");
+  }
+  function oeffneEinstellungen() {
+    banner.querySelector(".consent-options").hidden = false;
+    banner.querySelector("[data-c=settings]").hidden = true;
+    banner.querySelector("[data-c=save]").hidden = false;
+  }
+  function schliesseBanner() {
+    if (banner) banner.hidden = true;
+    document.body.classList.remove("has-consent");
+  }
+
+  document.addEventListener("click", function (e) {
+    var open = e.target.closest("[data-consent-open]");
+    if (!open) return;
+    e.preventDefault();
+    zeigeBanner(true);
+  });
+
+  wendeEinwilligungAn();
+  if (!consent) zeigeBanner(false);
 
   /* ---------- Tabs (Anfahrt) ---------- */
   $$("[role=tablist]").forEach(function (list) {
