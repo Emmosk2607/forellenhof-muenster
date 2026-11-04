@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6f1e7"/>
+      <stop offset="1" stop-color="#e3d6bd"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4f6b55"/>
+      <stop offset=".45" stop-color="#b9a07a"/>
+      <stop offset=".6" stop-color="#e48d6a"/>
+      <stop offset="1" stop-color="#f7efe2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <!-- Holzbrett -->
+  <rect x="80" y="250" width="1040" height="420" rx="40" fill="#c99a63"/>
+  <g stroke="#a87a48" stroke-width="4" opacity=".6"><path d="M120 330 H1080"/><path d="M120 460 H1080"/><path d="M120 590 H1080"/></g>
+  <!-- Forelle -->
+  <g transform="translate(170 460)">
+    <path d="M0 0 C140 -150 560 -160 760 -40 L900 -140 L860 0 L900 140 L760 40 C560 160 140 150 0 0 Z" fill="url(#body)"/>
+    <path d="M70 -20 C260 -60 520 -60 740 -14" stroke="#e57a32" stroke-width="16" fill="none" opacity=".75" stroke-linecap="round"/>
+    <path d="M150 -60 C150 0 150 40 140 70" stroke="#3b4d42" stroke-width="5" fill="none" opacity=".5"/>
+    <circle cx="70" cy="-26" r="13" fill="#1a2420"/><circle cx="66" cy="-30" r="4" fill="#fff"/>
+    <g fill="#2e3d33" opacity=".75">
+      <circle cx="260" cy="-90" r="9"/><circle cx="330" cy="-100" r="7"/><circle cx="410" cy="-96" r="9"/><circle cx="480" cy="-86" r="7"/><circle cx="560" cy="-74" r="8"/><circle cx="630" cy="-60" r="6"/>
+      <circle cx="300" cy="-60" r="6"/><circle cx="380" cy="-62" r="7"/><circle cx="460" cy="-56" r="6"/><circle cx="540" cy="-46" r="6"/>
+      <circle cx="820" cy="-80" r="6"/><circle cx="845" cy="-30" r="5"/><circle cx="835" cy="40" r="6"/>
+    </g>
+    <path d="M330 90 L380 150 L420 92 Z" fill="#7b8c74" opacity=".8"/>
+    <path d="M360 -120 L420 -175 L470 -118 Z" fill="#7b8c74" opacity=".8"/>
+  </g>
+  <!-- Zitrone & Kräuter -->
+  <g transform="translate(980 300)">
+    <circle r="60" fill="#f4d35e"/><circle r="46" fill="#fbe9a0"/>
+    <g stroke="#f4d35e" stroke-width="5"><path d="M0 -46 V46"/><path d="M-40 -23 L40 23"/><path d="M-40 23 L40 -23"/></g>
+  </g>
+  <g fill="#5d8a52"><ellipse cx="150" cy="300" rx="40" ry="16" transform="rotate(-30 150 300)"/><ellipse cx="190" cy="285" rx="36" ry="14" transform="rotate(20 190 285)"/><ellipse cx="170" cy="330" rx="34" ry="13" transform="rotate(60 170 330)"/></g>
+</svg>

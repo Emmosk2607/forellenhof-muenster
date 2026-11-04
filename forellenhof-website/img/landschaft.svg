@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b3d5c"/>
+      <stop offset=".45" stop-color="#8d7c9e"/>
+      <stop offset=".72" stop-color="#f0a77c"/>
+      <stop offset="1" stop-color="#f7c99b"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9a47e"/>
+      <stop offset=".35" stop-color="#7d6f8c"/>
+      <stop offset="1" stop-color="#16232f"/>
+    </linearGradient>
+    <radialGradient id="sun" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#fff2d6" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#fff2d6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="560" fill="url(#sky)"/>
+  <circle cx="820" cy="520" r="220" fill="url(#sun)"/>
+  <!-- ferne Bäume -->
+  <path d="M0 520 L60 470 L90 500 L140 440 L190 505 L240 455 L300 510 L360 470 L420 515 L480 480 L540 520 L600 490 L660 525 L720 500 L800 530 L880 500 L940 525 L1010 485 L1070 520 L1130 470 L1190 515 L1250 460 L1310 510 L1370 450 L1430 505 L1500 455 L1560 500 L1600 470 L1600 560 L0 560 Z" fill="#3a3a52" opacity=".55"/>
+  <!-- Tannen links -->
+  <g fill="#141c22">
+    <path d="M0 560 V200 L40 260 L20 260 L70 330 L40 330 L100 410 L60 410 L130 500 L90 500 L160 560 Z"/>
+    <path d="M150 560 L210 380 L190 380 L240 300 L220 300 L265 220 L310 300 L290 300 L340 380 L320 380 L380 560 Z"/>
+    <path d="M330 560 L380 440 L365 440 L405 370 L445 440 L430 440 L480 560 Z"/>
+  </g>
+  <!-- Tannen rechts -->
+  <g fill="#141c22">
+    <path d="M1600 560 V160 L1560 230 L1580 230 L1525 320 L1555 320 L1490 420 L1525 420 L1455 520 L1495 520 L1430 560 Z"/>
+    <path d="M1460 560 L1400 400 L1420 400 L1370 320 L1390 320 L1345 240 L1300 320 L1320 320 L1270 400 L1290 400 L1230 560 Z"/>
+    <path d="M1250 560 L1205 460 L1220 460 L1180 395 L1140 460 L1155 460 L1110 560 Z"/>
+  </g>
+  <!-- Wasser -->
+  <rect y="560" width="1600" height="340" fill="url(#water)"/>
+  <g fill="#141c22" opacity=".55">
+    <path d="M0 560 V820 L60 700 L100 760 L160 620 L240 700 L300 600 L380 640 L480 560 Z"/>
+    <path d="M1600 560 V860 L1540 720 L1490 780 L1440 650 L1360 700 L1300 610 L1220 640 L1110 560 Z"/>
+  </g>
+  <g stroke="#ffe3c4" stroke-linecap="round" opacity=".55">
+    <path d="M700 610 H940" stroke-width="4"/>
+    <path d="M660 650 H980" stroke-width="3"/>
+    <path d="M720 700 H900" stroke-width="3"/>
+    <path d="M760 760 H860" stroke-width="2"/>
+  </g>
+  <g stroke="#ffffff" stroke-opacity=".18" stroke-width="2" fill="none">
+    <ellipse cx="560" cy="740" rx="120" ry="14"/>
+    <ellipse cx="560" cy="740" rx="60" ry="7"/>
+  </g>
+</svg>

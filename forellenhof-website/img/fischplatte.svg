@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid meet">
+  <rect width="1200" height="900" fill="#ffffff"/>
+  <!-- Platte -->
+  <ellipse cx="600" cy="470" rx="500" ry="300" fill="#e9e4da"/>
+  <ellipse cx="600" cy="460" rx="470" ry="275" fill="#fbf9f4" stroke="#d8d0c0" stroke-width="6"/>
+  <!-- Salatbett -->
+  <g fill="#7fb069">
+    <ellipse cx="380" cy="420" rx="150" ry="70" transform="rotate(-12 380 420)"/>
+    <ellipse cx="820" cy="420" rx="150" ry="70" transform="rotate(12 820 420)"/>
+    <ellipse cx="600" cy="560" rx="200" ry="60"/>
+  </g>
+  <!-- geräucherte Forellenfilets -->
+  <g>
+    <path d="M250 430 C300 360 460 350 520 400 C470 450 320 470 250 430 Z" fill="#d9894f"/>
+    <path d="M270 425 C320 385 450 380 505 405" stroke="#f3c08f" stroke-width="8" fill="none"/>
+    <path d="M680 400 C740 350 900 360 950 430 C880 470 730 450 680 400 Z" fill="#c9733d"/>
+    <path d="M695 405 C750 380 880 385 930 425" stroke="#efb27c" stroke-width="8" fill="none"/>
+  </g>
+  <!-- Lachsforellen-Röllchen -->
+  <g fill="#ef8a6b" stroke="#f7b9a2" stroke-width="6">
+    <circle cx="520" cy="540" r="44"/><circle cx="610" cy="560" r="44"/><circle cx="700" cy="540" r="44"/>
+  </g>
+  <g fill="none" stroke="#f9cdbc" stroke-width="5"><circle cx="520" cy="540" r="22"/><circle cx="610" cy="560" r="22"/><circle cx="700" cy="540" r="22"/></g>
+  <!-- Aal-Stücke -->
+  <g fill="#7a5a3a"><rect x="540" y="300" width="120" height="44" rx="20"/><rect x="560" y="352" width="100" height="40" rx="18"/></g>
+  <g fill="#c9a77a" opacity=".6"><rect x="540" y="300" width="120" height="10" rx="5"/><rect x="560" y="352" width="100" height="9" rx="4"/></g>
+  <!-- Zitrone, Tomate, Ei -->
+  <g transform="translate(330 560)"><circle r="44" fill="#f4d35e"/><circle r="34" fill="#fbe9a0"/></g>
+  <g transform="translate(880 560)"><circle r="40" fill="#d64545"/><circle r="10" cx="-10" cy="-8" fill="#f08a8a"/></g>
+  <g transform="translate(470 330)"><ellipse rx="40" ry="30" fill="#ffffff" stroke="#e5ded0" stroke-width="4"/><circle r="15" fill="#f5b83d"/></g>
+  <g transform="translate(750 330)"><ellipse rx="40" ry="30" fill="#ffffff" stroke="#e5ded0" stroke-width="4"/><circle r="15" fill="#f5b83d"/></g>
+  <!-- Dill -->
+  <g stroke="#4f7d3e" stroke-width="4" stroke-linecap="round">
+    <path d="M600 470 l-30 -30 M600 470 l30 -30 M600 470 v-40 M585 455 l-20 -6 M615 455 l20 -6"/>
+  </g>
+</svg>

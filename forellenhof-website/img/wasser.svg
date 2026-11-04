@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6fb7b4"/>
+      <stop offset=".55" stop-color="#2c7f86"/>
+      <stop offset="1" stop-color="#0f3f48"/>
+    </linearGradient>
+    <linearGradient id="trout" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5d7a5a"/>
+      <stop offset=".5" stop-color="#d9a07e"/>
+      <stop offset="1" stop-color="#f1e6d4"/>
+    </linearGradient>
+    <g id="fish">
+      <path d="M0 0 C60 -48 190 -54 280 -14 L340 -52 L326 0 L340 52 L280 14 C190 54 60 48 0 0 Z" fill="url(#trout)"/>
+      <path d="M40 -6 C110 -18 200 -18 270 -4" stroke="#e57a32" stroke-width="7" fill="none" opacity=".7"/>
+      <circle cx="36" cy="-8" r="5" fill="#13221f"/>
+      <g fill="#2f3f33" opacity=".7"><circle cx="110" cy="-26" r="4"/><circle cx="150" cy="-30" r="3.5"/><circle cx="190" cy="-24" r="4"/><circle cx="230" cy="-20" r="3"/><circle cx="130" cy="-14" r="3"/><circle cx="210" cy="-12" r="3"/></g>
+    </g>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <g fill="#ffffff" opacity=".08">
+    <ellipse cx="200" cy="120" rx="220" ry="40"/><ellipse cx="760" cy="90" rx="260" ry="36"/><ellipse cx="1080" cy="200" rx="180" ry="30"/>
+    <ellipse cx="420" cy="300" rx="160" ry="24"/><ellipse cx="960" cy="420" rx="200" ry="26"/>
+  </g>
+  <use href="#fish" transform="translate(180 330) scale(1.15)"/>
+  <use href="#fish" transform="translate(1040 520) scale(-1 1) scale(1.3)" opacity=".95"/>
+  <use href="#fish" transform="translate(300 690) scale(.9)" opacity=".85"/>
+  <use href="#fish" transform="translate(860 230) scale(-.7 .7)" opacity=".7"/>
+  <g fill="none" stroke="#e6fbff" stroke-opacity=".5" stroke-width="3">
+    <circle cx="560" cy="300" r="10"/><circle cx="585" cy="250" r="6"/><circle cx="572" cy="210" r="4"/>
+    <circle cx="700" cy="640" r="8"/><circle cx="716" cy="600" r="5"/>
+  </g>
+  <path d="M0 860 C200 820 380 880 600 850 S1000 820 1200 860 V900 H0 Z" fill="#0a2e35" opacity=".6"/>
+</svg>
