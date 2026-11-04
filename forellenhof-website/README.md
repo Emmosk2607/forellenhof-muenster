@@ -35,7 +35,7 @@ Das Skript überträgt die Änderung in alle anderen Seiten.
 
 ## Vor dem Livegang erledigen
 1. **Ruhetag klären**: Die alte Seite nennt sowohl „Dienstag“ als auch „Dienstag und Freitag“. Zurzeit ist `[2, 5]` (Di & Fr) eingestellt. Bei Bedarf auch die Öffnungszeiten im JSON-LD in `index.html` anpassen.
-2. **Bilder lokal speichern**: Die Fotos werden noch von der alten Seite bzw. von fischzuchtmuensterland.de geladen. Sie gehören in den Ordner `img/` (als WebP mit ca. 1600 px), danach die Pfade anpassen. Nutzungsrechte mit dem Fotografen klären.
+2. **Bildrechte** für die Fotos in `img/` mit dem Fotografen klären (die Fotos stammen von der alten Seite).
 3. **SSL/HTTPS** bei IONOS aktivieren.
 4. **Weiterleitungen (301)** von den alten Joomla-URLs einrichten, z. B. per `.htaccess`:
    ```
