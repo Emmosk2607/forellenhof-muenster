@@ -52,7 +52,8 @@ Das Skript überträgt die Änderung in alle anderen Seiten.
 5. **Impressum und Datenschutz** rechtlich prüfen lassen: vollständiger Name des Inhabers, Rechtsform.
 6. **Fehlende Preise** ergänzen (Saibling, Stör, Wels) sowie den Besatz von Teich 5.
 7. **News-Daten** in `daten.js` prüfen. Die alte Seite hatte keine Datumsangaben, die eingetragenen Daten sind Platzhalter.
-8. Optional: `sitemap.xml` anlegen und das Google-Unternehmensprofil abgleichen.
+8. **Vorschau-Sperre entfernen:** In allen Seiten die Zeile `<meta name="robots" content="noindex, nofollow">` löschen (bei Impressum und Datenschutz durch `noindex, follow` ersetzen), damit Google die Seite aufnimmt.
+9. Optional: `sitemap.xml` anlegen und das Google-Unternehmensprofil abgleichen.
 
 ## Nach Änderungen an CSS oder JavaScript
 In allen HTML-Dateien die Versionsnummer hinter `style.css?v=…`, `daten.js?v=…` und `main.js?v=…` erhöhen, damit Browser keine alte Version aus dem Cache verwenden.
